@@ -1,0 +1,8 @@
+{
+  "short_name": "EWM",
+  "name": "e-Waste Manager",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
