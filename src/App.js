@@ -9,7 +9,7 @@ import { ConnectedRouter } from "connected-react-router";
 import { store, history } from "./redux/store";
 
 const client = new ApolloClient({
-  uri: "http://localhost:8000/graphql",
+  uri: "http://192.168.0.7:8000/graphql",
   request: Operation => {
     const token = localStorage.getItem("token");
 
