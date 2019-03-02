@@ -6,6 +6,8 @@ import { UncontrolledAlert } from "reactstrap";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import { withRouter } from "react-router-dom";
+import { setAuth } from "./../../redux/actions/auth-actions";
+import { connect } from "react-redux";
 
 const LOGIN = gql`
   mutation Login($username: String!, $password: String!) {
@@ -137,6 +139,7 @@ class LogIn_SignUp extends Component {
   LoginForm = () => (
     <Mutation
       onCompleted={data => {
+        this.props.setAuth(data.tokenAuth.token);
         this.props.history.push("/dashboard");
         localStorage.setItem("token", data.tokenAuth.token);
       }}
@@ -223,4 +226,9 @@ class LogIn_SignUp extends Component {
   }
 }
 
-export default withRouter(LogIn_SignUp);
+export default withRouter(
+  connect(
+    null,
+    { setAuth }
+  )(LogIn_SignUp)
+);

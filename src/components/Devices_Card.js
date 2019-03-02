@@ -12,7 +12,8 @@ const Devices_Card = props => {
           <p className="card-text">{props.short_desc}</p>
           <div class="row m-auto w-100">
             <button
-              onClick={() => {
+              onClick={e => {
+                e.preventDefault();
                 // props.history.push("/cart");
               }}
               type="button"
@@ -21,7 +22,9 @@ const Devices_Card = props => {
               Buy
             </button>
             <button
-              onClick={() => {
+              onClick={e => {
+                e.preventDefault();
+
                 props.history.push("/cart");
               }}
               type="button"

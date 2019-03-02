@@ -13,7 +13,12 @@ export default class Router extends Component {
       <div>
         <Switch>
           <Route path="/all_devices" component={All_Devices} />
-          <Route path="/device_details" component={Device_Details} />
+
+          <Route
+            path="/device_details/:deviceId"
+            exact
+            component={Device_Details}
+          />
           <AuthProtect path="/dashboard" component={DashRouter} />
           <Route exact path="/" component={LogIn_SignUp} />
         </Switch>
