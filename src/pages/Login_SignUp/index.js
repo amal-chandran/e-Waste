@@ -31,7 +31,6 @@ const SIGNUP = gql`
       password: $password
       firstname: $firstname
       lastname: $lastname
-      usertype: "BUYER"
     ) {
       customuser {
         username
