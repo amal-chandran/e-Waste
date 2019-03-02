@@ -3,6 +3,15 @@ import Devices_Card from "../components/Devices_Card";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Link } from "react-router-dom";
+import {
+  Row,
+  Col,
+  InputGroup,
+  Input,
+  InputGroupAddon,
+  Button
+} from "reactstrap";
+import AllResultsLayout from "../components/DeviceListLayout";
 
 const GET_ALL_DEVICES = gql`
   query {
@@ -16,19 +25,23 @@ const GET_ALL_DEVICES = gql`
 export default class All_Devices extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: [
-        { _id: "", name: "Redmi Note Pro", short_desc: "Apple Test Lover" },
-        { _id: "", name: "Redmi Note Pro", short_desc: "Apple Test Lover" },
-        { _id: "", name: "Redmi Note Pro", short_desc: "Apple Test Lover" },
-        { _id: "", name: "Redmi Note Pro", short_desc: "Apple Test Lover" }
-      ]
-    };
   }
   render() {
     return (
-      <div>
+      <AllResultsLayout>
         <div className="container mt-4">
+          <Row className="py-2 ">
+            <Col>
+              <InputGroup size="lg">
+                <Input placeholder="Search" />
+                <InputGroupAddon addonType="append">
+                  <Button color="primary">
+                    <i class="fas fa-search" />
+                  </Button>
+                </InputGroupAddon>
+              </InputGroup>
+            </Col>
+          </Row>
           <h2>Devices</h2>
           <Query query={GET_ALL_DEVICES}>
             {({ loading, error, data }) => {
@@ -49,7 +62,7 @@ export default class All_Devices extends Component {
             }}
           </Query>
         </div>
-      </div>
+      </AllResultsLayout>
     );
   }
 }

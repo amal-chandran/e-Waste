@@ -3,10 +3,10 @@ import MainLayout from "./components/MainLayout";
 import Router from "./main/Router";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-// import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import { ConnectedRouter } from "connected-react-router";
-import { store, history } from "./redux/store";
+import { store, history, persistor } from "./redux/store";
 
 const client = new ApolloClient({
   uri: "http://192.168.0.7:8000/graphql",
@@ -27,11 +27,13 @@ export default class App extends Component {
     return (
       <ApolloProvider client={client}>
         <Provider store={store}>
-          <ConnectedRouter history={history}>
-            <MainLayout>
-              <Router />
-            </MainLayout>
-          </ConnectedRouter>
+          <PersistGate loading={null} persistor={persistor}>
+            <ConnectedRouter history={history}>
+              <MainLayout>
+                <Router />
+              </MainLayout>
+            </ConnectedRouter>
+          </PersistGate>
         </Provider>
       </ApolloProvider>
     );

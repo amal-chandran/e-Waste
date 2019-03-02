@@ -18,8 +18,21 @@ const LOGIN = gql`
 `;
 
 const SIGNUP = gql`
-  mutation Signup($username: String!, $password: String!, $email: String!) {
-    createCustomuser(email: $email, username: $username, password: $password) {
+  mutation Signup(
+    $username: String!
+    $password: String!
+    $email: String!
+    $firstname: String!
+    $lastname: String!
+  ) {
+    createCustomuser(
+      email: $email
+      username: $username
+      password: $password
+      firstname: $firstname
+      lastname: $lastname
+      usertype: "BUYER"
+    ) {
       customuser {
         username
         usertype
@@ -38,7 +51,7 @@ class LogIn_SignUp extends Component {
 
   SignUpForm = () => (
     <Mutation
-      onComplete={() => {
+      onCompleted={data => {
         this.setState({ form: "login" });
       }}
       mutation={SIGNUP}
