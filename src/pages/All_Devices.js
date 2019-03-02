@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Devices_Card from "../components/Devices_Card";
+import DevicesCard from "../components/Devices_Card";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Link } from "react-router-dom";
@@ -23,9 +23,7 @@ const GET_ALL_DEVICES = gql`
 `;
 
 export default class All_Devices extends Component {
-  constructor(props) {
-    super(props);
-  }
+
   render() {
     return (
       <AllResultsLayout>
@@ -54,7 +52,7 @@ export default class All_Devices extends Component {
                       className="link_effect"
                       to={`/device_details/${single_device.id}`}
                     >
-                      <Devices_Card {...single_device} />
+                      <DevicesCard {...single_device} />
                     </Link>
                   ))}
                 </div>

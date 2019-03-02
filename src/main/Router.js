@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import LogIn_SignUp from "./../pages/Login_SignUp";
 import DashRouter from "./DashRouter";

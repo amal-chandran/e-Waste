@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Devie_List_Item from "../components/Device_List_Item";
-import { Table } from "reactstrap";
-import { Button, ButtonGroup, Row, Col } from "reactstrap";
+import DevieListItem from "../components/Device_List_Item";
+import Link from "react-router-dom/Link";
+
 
 export default class Cart extends Component {
   render() {
@@ -9,11 +9,11 @@ export default class Cart extends Component {
       <div className="container mt-4">
         <h1 className="h2">Wishlist</h1>
         <div className="mt-4">
-          <Devie_List_Item
+          <DevieListItem
             toolbar={
-              <a class="btn btn-success" href="" role="button">
+              <Link class="btn btn-success" to="" role="button">
                 Add to Cart
-              </a>
+              </Link>
             }
           />
         </div>

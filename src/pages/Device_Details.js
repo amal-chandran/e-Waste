@@ -13,6 +13,7 @@ import {
 import classnames from "classnames";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import { Link } from "react-router-dom";
 
 const SLIGLE_DEVICE = gql`
   query getDevice($id: Int!) {
@@ -160,13 +161,13 @@ export default class IndResult extends Component {
                                 </div>
                                 <div className="col border-left">
                                   <h6 className=" pb-2">Links</h6>
-                                  <a href="">MI</a>
+                                  <Link to="">MI</Link>
                                   <br />
-                                  <a href="">Support Team</a>
+                                  <Link to="">Support Team</Link>
                                   <br />
-                                  <a href="">Phone</a>
+                                  <Link to="">Phone</Link>
                                   <br />
-                                  <a href="">Email</a>
+                                  <Link to="">Email</Link>
                                 </div>
                               </div>
                               <hr />

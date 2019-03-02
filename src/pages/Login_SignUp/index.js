@@ -5,7 +5,7 @@ import { UncontrolledAlert } from "reactstrap";
 
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { setAuth } from "./../../redux/actions/auth-actions";
 import { connect } from "react-redux";
 
@@ -131,7 +131,8 @@ class LogIn_SignUp extends Component {
             </button>
             <hr />
             <div className=" text-light text-center  mt-3 mb-2  ">
-              <a
+              <Link
+              to=""
                 onClick={e => {
                   e.preventDefault();
                   this.setState({ form: "login" });
@@ -140,7 +141,7 @@ class LogIn_SignUp extends Component {
                 href=""
               >
                 Already Joined
-              </a>
+              </Link>
             </div>
           </Form>
         </Formik>
@@ -201,7 +202,7 @@ class LogIn_SignUp extends Component {
                   </div>
                 </div>
                 <div className="col text-light text-right">
-                  <a href="">Forgot password ?</a>
+                  <Link to="">Forgot password ?</Link>
                 </div>
               </div>
 
@@ -210,7 +211,8 @@ class LogIn_SignUp extends Component {
               </button>
               <hr />
               <div className=" text-light text-center  mt-3 mb-2  ">
-                <a
+                <Link
+                to=""
                   onClick={e => {
                     e.preventDefault();
                     this.setState({ form: "signup" });
@@ -218,7 +220,7 @@ class LogIn_SignUp extends Component {
                   className="text-info"
                 >
                   Create Account
-                </a>
+                </Link>
               </div>
             </Form>
           </Formik>
@@ -231,7 +233,7 @@ class LogIn_SignUp extends Component {
     return (
       <div>
         <div>
-          {this.state.form == "login" ? this.LoginForm() : this.SignUpForm()}
+          {this.state.form === "login" ? this.LoginForm() : this.SignUpForm()}
         </div>
       </div>
     );
