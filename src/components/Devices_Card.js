@@ -25,7 +25,7 @@ const Devices_Card = props => {
               onClick={e => {
                 e.preventDefault();
 
-                props.history.push("/cart");
+                props.history.push("/dashboard/cart");
               }}
               type="button"
               class="btn col font-weight-bold ml-1 btn-info"

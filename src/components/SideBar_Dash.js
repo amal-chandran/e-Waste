@@ -20,7 +20,7 @@ export default class SideBar extends Component {
                 className="nav-link "
               >
                 <span data-feather="home" />
-                Profile Information <span className="sr-only">(current)</span>
+                Profile
               </NavLink>
             </li>
             <li className="nav-item">
@@ -30,7 +30,17 @@ export default class SideBar extends Component {
                 className="nav-link "
               >
                 <span data-feather="home" />
-                Cart <span className="sr-only">(current)</span>
+                Cart
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                activeClassName="active"
+                to="/dashboard/myorders"
+                className="nav-link "
+              >
+                <span data-feather="home" />
+                My Orders
               </NavLink>
             </li>
             <li className="nav-item">
@@ -40,7 +50,7 @@ export default class SideBar extends Component {
                 className="nav-link "
               >
                 <span data-feather="home" />
-                Wislist <span className="sr-only">(current)</span>
+                Wislist
               </NavLink>
             </li>
           </ul>
@@ -58,7 +68,7 @@ export default class SideBar extends Component {
                 className="nav-link "
               >
                 <span data-feather="file-text" />
-                Upload a New Product
+                New Product
               </NavLink>
             </li>
             <li className="nav-item">
