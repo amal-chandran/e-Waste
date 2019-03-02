@@ -1,24 +1,23 @@
 import React, { Component } from "react";
 import BootstrapTable from "react-bootstrap-table-next";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 
-const products = [
-  {
-    id: 1,
-    name: "Apple",
-    price: 200
-  }
-];
 const columns = [
   {
-    dataField: "id",
-    text: "Product ID"
+    dataField: "name",
+    text: "Name"
   },
   {
-    dataField: "name",
+    dataField: "modelNumber",
+    text: "Model Number"
+  },
+  {
+    dataField: "reuseMethod",
     text: "Product Name"
   },
   {
-    dataField: "price",
+    dataField: "manufacturer_name",
     text: "Product Price"
   }
 ];
@@ -41,7 +40,34 @@ export default class ComponentList extends Component {
         </div>
 
         <div className="bg-white">
-          <BootstrapTable keyField="id" data={products} columns={columns} />
+          <Query
+            query={gql`
+              {
+                myComponents {
+                  name
+                  added
+                  modelNumber
+                  manufacturer {
+                    name
+                  }
+                }
+              }
+            `}
+          >
+            {({ loading, error, data }) => {
+              if (loading) return <p>Loading...</p>;
+              if (error) return <p>Error :(</p>;
+              data = data.myDevices.map(data => {
+                return {
+                  ...data,
+                  manufacturer_name: data.manufacturer.name
+                };
+              });
+              return (
+                <BootstrapTable keyField="id" data={data} columns={columns} />
+              );
+            }}
+          </Query>{" "}
         </div>
       </div>
     );
