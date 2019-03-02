@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 import { Row, Col, Label, Container } from "reactstrap";
 import Button from "reactstrap/lib/Button";
-<<<<<<< Updated upstream
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 
@@ -31,11 +30,6 @@ const ADD_PRODUCT = gql`
     }
   }
 `;
-=======
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import ReactMarkdown from "react-markdown";
->>>>>>> Stashed changes
 
 export default class Add_Product extends Component {
   constructor(props) {
@@ -113,7 +107,6 @@ export default class Add_Product extends Component {
                   <Col>
                     <Label>Links (Separate Link With comma's)</Label>
 
-<<<<<<< Updated upstream
                     <Field
                       component={"textarea"}
                       name="supportNotes"
@@ -171,71 +164,6 @@ export default class Add_Product extends Component {
           </Container>
         )}
       </Mutation>
-=======
-                      <Field
-                        component={"textarea"}
-                        name="name"
-                        className="form-control"
-                        placeholder="http://www.example.com, http://www.example2.com"
-                      />
-                    </Col>
-                  </Row>
-                  <hr />
-                  <h5>Specification</h5>
-                  <Row>
-                    <Col>
-                      <Label>Software Specifications</Label>
-                      <ReactMarkdown source={this.state.sw_spec} />
-
-                      <Field
-                        onChange={e =>
-                          this.setState({ sw_spec: e.target.value })
-                        }
-                        component={"textarea"}
-                        name="softspecs"
-                        className="form-control"
-                        placeholder=""
-                      />
-                    </Col>
-                    <Col>
-                      <Label>Hardware Specifications</Label>
-                      <Field
-                        component={"textarea"}
-                        name="hardspecs"
-                        className="form-control"
-                        placeholder=""
-                      />
-                    </Col>
-                  </Row>
-                  <hr />
-                  <h5>Reuse Methods</h5>
-                  <Row>
-                    <Col>
-                      <Label>
-                        Methods in which the item can be reused in points
-                      </Label>
-                      <Field
-                        component={"textarea"}
-                        name="reusemethods"
-                        className="form-control"
-                        placeholder=""
-                      />
-                    </Col>
-                  </Row>
-                  <Row className="pt-5 pb-5">
-                    <Col>
-                      <Button color="primary" outline>
-                        Save Product
-                      </Button>
-                    </Col>
-                  </Row>
-                </Form>
-              );
-            }}
-          />
-        </Container>
-      </div>
->>>>>>> Stashed changes
     );
   }
 }
