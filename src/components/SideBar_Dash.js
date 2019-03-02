@@ -74,6 +74,16 @@ export default class SideBar extends Component {
             <li className="nav-item">
               <NavLink
                 activeClassName="active"
+                to="/dashboard/addcomponent"
+                className="nav-link "
+              >
+                <span data-feather="file-text" />
+                New Component
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                activeClassName="active"
                 to="/dashboard/myitems"
                 className="nav-link "
               >

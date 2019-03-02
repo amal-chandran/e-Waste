@@ -5,59 +5,54 @@ import Button from "reactstrap/lib/Button";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 
-const ADD_PRODUCT = gql`
-  mutation createDevice(
-    $name: String!
+const ADD_COMPONENT = gql`
+  mutation createComponent(
     $hwSpecification: String!
-    $swSpecification: String!
-    $modelNumber: String!
-    $reuseMethod: String!
-    $supportNotes: String!
-    $version: String!
+    $name: String!
     $manufacturerName: String!
+    $supportNotes: String!
+    $swSpecification: String!
+    $version: String!
   ) {
-    createDevice(
-      name: $name
+    createComponent(
       hwSpecification: $hwSpecification
-      swSpecification: $swSpecification
-      modelNumber: $modelNumber
-      reuseMethod: $reuseMethod
-      supportNotes: $supportNotes
-      version: $version
+      name: $name
       manufacturerName: $manufacturerName
+      supportNotes: $supportNotes
+      swSpecification: $swSpecification
+      version: $version
     ) {
       id
     }
   }
 `;
 
-export default class Add_Product extends Component {
+export default class Add_Component extends Component {
   render() {
     return (
       <Mutation
         onCompleted={() => {
           this.setState({});
         }}
-        mutation={ADD_PRODUCT}
+        mutation={ADD_COMPONENT}
       >
-        {(createDevice, { data }) => (
+        {(createComponent, { data }) => (
           <Container className="pt-5 pb-5">
             <h1>
-              <b>Add Product</b>
+              <b>Add Component</b>
             </h1>
             <hr />
             <Formik
               initialValues={{
-                name: "",
-                modelNumber: "",
-                manufacturerName: "",
                 hwSpecification: "",
+                name: "",
+                manufacturerName: "",
                 supportNotes: "",
                 swSpecification: "",
                 version: ""
               }}
               onSubmit={values => {
-                createDevice({ variables: values });
+                createComponent({ variables: values });
               }}
             >
               <Form>
@@ -65,18 +60,8 @@ export default class Add_Product extends Component {
                 <Row className="form-group">
                   <Col>
                     <Label>Product Name</Label>
-                    <Field type="text" name="name" className="form-control" />
+                    <Field type="name" name="name" className="form-control" />
                   </Col>
-                  <Col>
-                    <Label>Manufacture</Label>
-                    <Field
-                      type="text"
-                      name="manufacturerName"
-                      className="form-control"
-                    />
-                  </Col>
-                </Row>
-                <Row>
                   <Col>
                     <Label>Version</Label>
                     <Field
@@ -86,25 +71,25 @@ export default class Add_Product extends Component {
                     />
                   </Col>
                   <Col>
-                    <Label>Serial Number</Label>
+                    <Label>Manufacture Name</Label>
                     <Field
                       type="text"
-                      name="modelNumber"
+                      name="manufacturerName"
                       className="form-control"
                     />
                   </Col>
                 </Row>
                 <hr />
-                <h5>Links</h5>
+                <h5>Notes</h5>
                 <Row>
                   <Col>
-                    <Label>Links (Separate Link With comma's)</Label>
+                    <Label>Notes on The Component</Label>
 
                     <Field
                       component={"textarea"}
                       name="supportNotes"
                       className="form-control"
-                      placeholder="http://www.example.com, http://www.example2.com"
+                      placeholder=""
                     />
                   </Col>
                 </Row>
@@ -125,21 +110,6 @@ export default class Add_Product extends Component {
                     <Field
                       component={"textarea"}
                       name="hwSpecification"
-                      className="form-control"
-                      placeholder=""
-                    />
-                  </Col>
-                </Row>
-                <hr />
-                <h5>Reuse Methods</h5>
-                <Row>
-                  <Col>
-                    <Label>
-                      Methods in which the item can be reused in points
-                    </Label>
-                    <Field
-                      component={"textarea"}
-                      name="reuseMethod"
                       className="form-control"
                       placeholder=""
                     />

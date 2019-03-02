@@ -6,6 +6,7 @@ import DriverList from "./../pages/Dashboard/DriverList";
 import Cart from "./../pages/Cart";
 import Wishlist from "./../pages/WishList";
 import Profile from "./../pages/Dashboard/Profile";
+import AddComponent from "./../pages/Dashboard/Add_Component";
 // import MyOders from "./../pages/Dashboard/MyOders";
 import TrackDetail from "./../components/TrackDetail";
 
@@ -17,7 +18,7 @@ export default class DashRouter extends Component {
       <DashboardLayout>
         <Switch>
           <Route path="/dashboard/track" exact component={TrackDetail} />
-
+          <Route path="/dashboard/addcomponent" component={AddComponent} />
           <Route path="/dashboard/addproduct" component={Add_Product} />
           <Route path="/dashboard/componentlist" component={ComponentList} />
           <Route path="/dashboard/cart" component={Cart} />
