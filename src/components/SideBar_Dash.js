@@ -68,7 +68,7 @@ export default class SideBar extends Component {
                 className="nav-link "
               >
                 <span data-feather="file-text" />
-                New Product
+                New Device
               </NavLink>
             </li>
             <li className="nav-item">
@@ -79,16 +79,6 @@ export default class SideBar extends Component {
               >
                 <span data-feather="file-text" />
                 New Component
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                activeClassName="active"
-                to="/dashboard/myitems"
-                className="nav-link "
-              >
-                <span data-feather="file-text" />
-                Your Products
               </NavLink>
             </li>
             <li className="nav-item">

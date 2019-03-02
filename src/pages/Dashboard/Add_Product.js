@@ -50,7 +50,7 @@ export default class Add_Product extends Component {
         {(createDevice, { data }) => (
           <Container className="pt-5 pb-5">
             <h1>
-              <b>Add Product</b>
+              <b>Add Device</b>
             </h1>
             <hr />
             <Formik
