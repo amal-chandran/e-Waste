@@ -7,9 +7,10 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { ConnectedRouter } from "connected-react-router";
 import { store, history, persistor } from "./redux/store";
+import { BASE_URL } from "./config";
 
 const client = new ApolloClient({
-  uri: "http://192.168.0.7:8000/graphql",
+  uri: `${BASE_URL}/graphql`,
   request: Operation => {
     const token = localStorage.getItem("token");
 

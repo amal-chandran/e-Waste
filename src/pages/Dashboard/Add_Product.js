@@ -6,6 +6,7 @@ import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import classNames from "classnames";
 import Dropzone from "react-dropzone";
+import { BASE_URL } from "./../../config";
 
 const ADD_PRODUCT = gql`
   mutation createDevice(
@@ -17,6 +18,7 @@ const ADD_PRODUCT = gql`
     $supportNotes: String!
     $version: String!
     $manufacturerName: String!
+    $document: Int!
   ) {
     createDevice(
       name: $name
@@ -27,6 +29,7 @@ const ADD_PRODUCT = gql`
       supportNotes: $supportNotes
       version: $version
       manufacturerName: $manufacturerName
+      document: $document
     ) {
       id
     }
@@ -35,17 +38,25 @@ const ADD_PRODUCT = gql`
 
 export default class Add_Product extends Component {
   onDrop = (acceptedFiles, rejectedFiles) => {
-    // Do something with files
+    var formData = new FormData();
+    formData.append("document", acceptedFiles[0]);
+
+    fetch(`${BASE_URL}/upload/`, {
+      method: "POST",
+      body: formData
+    })
+      .then(response => response.json())
+      .then(data => this.setState({ document: data.id }));
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      sw_spec: "",
-      hw_spec: ""
+      document: 0
     };
   }
   render() {
+    console.log(this.state.document);
     return (
       <Mutation
         onCompleted={() => {
@@ -62,6 +73,7 @@ export default class Add_Product extends Component {
             <Formik
               initialValues={{
                 name: "",
+                reuseMethod: "",
                 modelNumber: "",
                 manufacturerName: "",
                 hwSpecification: "",
@@ -70,6 +82,8 @@ export default class Add_Product extends Component {
                 version: ""
               }}
               onSubmit={values => {
+                values.document = this.state.document;
+
                 createDevice({ variables: values });
               }}
             >
