@@ -14,6 +14,7 @@ export default class TrackDetail extends Component {
             <Col md={3}>
               <img
                 src={Placeholder}
+                class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                 alt=""
               />
             </Col>
