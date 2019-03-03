@@ -271,7 +271,7 @@ export default class IndResult extends Component {
                               </table>
                             </div>
                             <div className="col">
-                              <h6>Seller &amp; Delivary</h6>
+                              <h6>Seller &amp; Delivery</h6>
                               <div>Seller</div>
                             </div>
                           </div>
@@ -285,7 +285,7 @@ export default class IndResult extends Component {
                                 )
                               )}
                             </div>
-                            <div>Delivary: ₹6000</div>
+                            <div>Delivery: ₹6000</div>
                           </div>
                           <hr />
                           <div>

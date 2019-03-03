@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
-import { Row, Col, Label, Container } from "reactstrap";
+import { Row, Col, Label, Container, UncontrolledAlert } from "reactstrap";
 import Button from "reactstrap/lib/Button";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
@@ -42,8 +42,22 @@ export default class Add_Component extends Component {
         }}
         mutation={ADD_COMPONENT}
       >
-        {(createComponent, { data }) => (
+        {(createComponent, { data, error }) => (
           <Container className="pt-5 pb-5">
+            {/* {error && (
+              <UncontrolledAlert color="danger">
+                <div className="text-center">
+                  <strong>Try Again</strong>
+                </div>
+              </UncontrolledAlert>
+            )}
+            {data && (
+              <UncontrolledAlert color="success">
+                <div className="text-center">
+                  <strong>Data Added</strong>
+                </div>
+              </UncontrolledAlert>
+            )} */}
             <h1>
               <b>Add Component</b>
             </h1>
