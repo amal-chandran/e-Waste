@@ -22,9 +22,10 @@ export default class OrderDetail extends Component {
           <Col md={3} className="border-right">
             <img
               src={placeholder}
-              class=""
+              class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
               alt=""
             />
+            
           </Col>
           <Col md={3} className="border-right">
             <h3>Product Name</h3>
