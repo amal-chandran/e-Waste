@@ -9,7 +9,7 @@ const Devices_Card = props => {
     <Mutation
       mutation={gql`
         mutation addDeviceCart($id: Int!) {
-          addDeviceCart(id: $id) {
+          addDeviceCartQuantity(id: $id, quantity: 1) {
             buyer {
               id
             }
