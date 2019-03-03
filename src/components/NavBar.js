@@ -88,17 +88,40 @@ class NavBar extends Component {
                       </RouterNavLink>
                     </li>
                     <NavItem>
-                      <NavLink href="#">GitHub</NavLink>
+                      <NavLink href="https://github.com/adevofficial/e-Waste">
+                        GitHub
+                      </NavLink>
                     </NavItem>
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav caret>
-                        <FontAwesomeIcon icon="user" className="" />
+                        <FontAwesomeIcon icon="user" className="" />{" "}
                         {data ? (data.me ? data.me.name : "Guest") : "Guest"}
                       </DropdownToggle>
                       <DropdownMenu right className="dropdown-usermenu">
-                        <DropdownItem>Profile</DropdownItem>
-                        <DropdownItem>Settings</DropdownItem>
-                        <DropdownItem>Help</DropdownItem>
+                        <a
+                          role="menuitem"
+                          class="dropdown-item"
+                          href="/dashboard/cart"
+                          data-ga-click="Header, go to profile, text:your profile"
+                        >
+                          Cart
+                        </a>{" "}
+                        <a
+                          role="menuitem"
+                          class="dropdown-item"
+                          href="/dashboard/wishlist"
+                          data-ga-click="Header, go to profile, text:your profile"
+                        >
+                          Wishlist
+                        </a>{" "}
+                        <a
+                          role="menuitem"
+                          class="dropdown-item"
+                          href="/dashboard/"
+                          data-ga-click="Header, go to profile, text:your profile"
+                        >
+                          Dashboard
+                        </a>{" "}
                         <DropdownItem divider />
                         <DropdownItem
                           onClick={() => {
