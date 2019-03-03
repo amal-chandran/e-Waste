@@ -12,7 +12,7 @@ export default class Cart extends Component {
             toolbar={
               <div>
                 <Link class="btn btn-success" to="" role="button">
-                  Move to Wishlist{" "}
+                  Move to Cart{" "}
                 </Link>{" "}
                 <Link class="btn btn-danger" to="" role="button">
                   Remove from Wishlist{" "}
