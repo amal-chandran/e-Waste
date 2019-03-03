@@ -37,9 +37,14 @@ export default class Cart extends Component {
                       <DeviceListItem
                         {...singleCart}
                         toolbar={
-                          <Link class="btn btn-danger" to="" role="button">
-                            Remove
-                          </Link>
+                          <div>
+                            <Link class="btn btn-warning" to="" role="button">
+                              Move to Wishlist
+                            </Link>{" "}
+                            <Link class="btn btn-danger" to="" role="button">
+                              Remove
+                            </Link>
+                          </div>
                         }
                       />
                     ))}

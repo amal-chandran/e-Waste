@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import DevieListItem from "../components/Device_List_Item";
 import Link from "react-router-dom/Link";
 
-
 export default class Cart extends Component {
   render() {
     return (
@@ -11,9 +10,14 @@ export default class Cart extends Component {
         <div className="mt-4">
           <DevieListItem
             toolbar={
-              <Link class="btn btn-success" to="" role="button">
-                Add to Cart
-              </Link>
+              <div>
+                <Link class="btn btn-success" to="" role="button">
+                  Move to Wishlist{" "}
+                </Link>{" "}
+                <Link class="btn btn-danger" to="" role="button">
+                  Remove from Wishlist{" "}
+                </Link>
+              </div>
             }
           />
         </div>
