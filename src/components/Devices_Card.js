@@ -20,7 +20,6 @@ const Devices_Card = props => {
       {(addDeviceCart, { loading, error, data }) => {
         if (loading) return <p>Loading...</p>;
         if (error) return <p>Error :(</p>;
-
         return (
           <div className="pl-2 pr-2 pt-2 pb-2">
             <div className="card" style={{ width: "18rem" }}>
@@ -43,7 +42,8 @@ const Devices_Card = props => {
                   <button
                     onClick={e => {
                       e.preventDefault();
-                      addDeviceCart(props.id);
+
+                      addDeviceCart({ variables: { id: props.id } });
                       props.history.push("/dashboard/cart");
                     }}
                     type="button"

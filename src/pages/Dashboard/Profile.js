@@ -41,7 +41,6 @@ export default class ProfInfo extends Component {
         `}
       >
         {({ data, loading, error }) => {
-          console.log(data);
           if (loading || isEmpty(data.me)) return <div>Loading</div>;
           if (error) return <div>Error</div>;
           if (isEmpty(data.me)) {
