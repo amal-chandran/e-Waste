@@ -73,7 +73,7 @@ export default class IndResult extends Component {
               <div className="container my-2">
                 <div className="mt-4">
                   <div className="text-center">
-                    <h2>Redmi Note Pro</h2>
+                    <h2> {data.device.name}</h2>
                   </div>
 
                   <Nav tabs>
