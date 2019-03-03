@@ -4,6 +4,8 @@ import { Row, Col, Label, Container } from "reactstrap";
 import Button from "reactstrap/lib/Button";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import classNames from "classnames";
+import Dropzone from "react-dropzone";
 
 const ADD_COMPONENT = gql`
   mutation createComponent(
@@ -28,6 +30,10 @@ const ADD_COMPONENT = gql`
 `;
 
 export default class Add_Component extends Component {
+  onDrop = (acceptedFiles, rejectedFiles) => {
+    // Do something with files
+  };
+
   render() {
     return (
       <Mutation
@@ -113,6 +119,34 @@ export default class Add_Component extends Component {
                       className="form-control"
                       placeholder=""
                     />
+                  </Col>
+                </Row>
+                <hr />
+                <h3>Add Images Here</h3>
+                <Row>
+                  <Col>
+                    <Dropzone onDrop={this.onDrop}>
+                      {({ getRootProps, getInputProps, isDragActive }) => {
+                        return (
+                          <div
+                            {...getRootProps()}
+                            className={classNames("dropzone", {
+                              "dropzone--isActive": isDragActive
+                            })}
+                          >
+                            <input {...getInputProps()} />
+                            {isDragActive ? (
+                              <p>Drop files here...</p>
+                            ) : (
+                              <p>
+                                Try dropping some files here, or click to select
+                                files to upload.
+                              </p>
+                            )}
+                          </div>
+                        );
+                      }}
+                    </Dropzone>
                   </Col>
                 </Row>
                 <Row className="pt-5 pb-5">

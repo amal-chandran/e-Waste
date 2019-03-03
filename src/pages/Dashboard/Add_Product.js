@@ -4,6 +4,8 @@ import { Row, Col, Label, Container } from "reactstrap";
 import Button from "reactstrap/lib/Button";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import classNames from "classnames";
+import Dropzone from "react-dropzone";
 
 const ADD_PRODUCT = gql`
   mutation createDevice(
@@ -32,6 +34,10 @@ const ADD_PRODUCT = gql`
 `;
 
 export default class Add_Product extends Component {
+  onDrop = (acceptedFiles, rejectedFiles) => {
+    // Do something with files
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -150,6 +156,36 @@ export default class Add_Product extends Component {
                       className="form-control"
                       placeholder=""
                     />
+                  </Col>
+                </Row>
+                <hr />
+                <h4>Add Images Here</h4>
+                <Row>
+                  <Col>
+                    <div>
+                      <Dropzone onDrop={this.onDrop}>
+                        {({ getRootProps, getInputProps, isDragActive }) => {
+                          return (
+                            <div
+                              {...getRootProps()}
+                              className={classNames("dropzone", {
+                                "dropzone--isActive": isDragActive
+                              })}
+                            >
+                              <input {...getInputProps()} />
+                              {isDragActive ? (
+                                <p>Drop files here...</p>
+                              ) : (
+                                <p>
+                                  Try dropping some files here, or click to
+                                  select files to upload.
+                                </p>
+                              )}
+                            </div>
+                          );
+                        }}
+                      </Dropzone>
+                    </div>
                   </Col>
                 </Row>
                 <Row className="pt-5 pb-5">
