@@ -11,8 +11,6 @@ import AddressForm from "./../components/AddressForm";
 import MyOders from "./../pages/Dashboard/MyOders";
 import TrackDetail from "./../components/TrackDetail";
 import ManageAddress from "./../components/ManageAddress";
-import SearchResults from "../pages/SearchResults";
-
 import ComponentList from "./../pages/Dashboard/ComponentList";
 
 export default class DashRouter extends Component {

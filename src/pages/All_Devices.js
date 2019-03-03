@@ -4,16 +4,7 @@ import { Query } from "react-apollo";
 import { Link } from "react-router-dom";
 import classnames from "classnames";
 
-import {
-  Row,
-  Col,
-  InputGroup,
-  Input,
-  InputGroupAddon,
-  Button,
-  NavItem,
-  Nav
-} from "reactstrap";
+import { Row, Col, NavItem, Nav } from "reactstrap";
 import AllResultsLayout from "../components/DeviceListLayout";
 import TabPane from "reactstrap/lib/TabPane";
 import TabContent from "reactstrap/lib/TabContent";

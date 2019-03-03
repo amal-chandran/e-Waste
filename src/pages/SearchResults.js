@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import DevicesCard from "../components/Devices_Card";
-import { Query } from "react-apollo";
 import { Link } from "react-router-dom";
 import classnames from "classnames";
 import {
   Row,
   Col,
   InputGroup,
-  Input,
   InputGroupAddon,
   Button,
   NavItem,
