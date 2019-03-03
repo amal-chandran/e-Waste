@@ -132,7 +132,7 @@ class LogIn_SignUp extends Component {
             <hr />
             <div className=" text-light text-center  mt-3 mb-2  ">
               <Link
-              to=""
+                to=""
                 onClick={e => {
                   e.preventDefault();
                   this.setState({ form: "login" });
@@ -153,7 +153,7 @@ class LogIn_SignUp extends Component {
     <Mutation
       onCompleted={data => {
         this.props.setAuth(data.tokenAuth.token);
-        this.props.history.push("/dashboard");
+        this.props.history.push("/SearchResult");
         localStorage.setItem("token", data.tokenAuth.token);
       }}
       mutation={LOGIN}
@@ -212,7 +212,7 @@ class LogIn_SignUp extends Component {
               <hr />
               <div className=" text-light text-center  mt-3 mb-2  ">
                 <Link
-                to=""
+                  to=""
                   onClick={e => {
                     e.preventDefault();
                     this.setState({ form: "signup" });

@@ -123,7 +123,11 @@ export default class SearchResults extends Component {
             </NavItem>
           </Nav>
 
-          <TabContent activeTab={this.state.activeTab}>
+          <TabContent
+            className="bg-white"
+            style={{ minHeight: "400px" }}
+            activeTab={this.state.activeTab}
+          >
             <TabPane tabId="1">
               <Row>
                 <Col>

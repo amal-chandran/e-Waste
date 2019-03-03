@@ -68,7 +68,8 @@ export default class AddressForm extends Component {
             }}
           >
             <Container>
-              <Form className="col-12">
+              <h2>Address</h2>
+              <Form>
                 <Row>
                   <Col md={6}>
                     <FormGroup>

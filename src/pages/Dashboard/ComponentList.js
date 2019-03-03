@@ -57,12 +57,14 @@ export default class ComponentList extends Component {
             {({ loading, error, data }) => {
               if (loading) return <p>Loading...</p>;
               if (error) return <p>Error :(</p>;
-              data = data.myDevices.map(data => {
-                return {
-                  ...data,
-                  manufacturer_name: data.manufacturer.name
-                };
-              });
+              data = data.myDevices
+                ? data.myDevices.map(data => {
+                    return {
+                      ...data,
+                      manufacturer_name: data.manufacturer.name
+                    };
+                  })
+                : [];
               return (
                 <BootstrapTable keyField="id" data={data} columns={columns} />
               );

@@ -11,6 +11,7 @@ import AddressForm from "./../components/AddressForm";
 import MyOders from "./../pages/Dashboard/MyOders";
 import TrackDetail from "./../components/TrackDetail";
 import ManageAddress from "./../components/ManageAddress";
+import SearchResults from "../pages/SearchResults";
 
 import ComponentList from "./../pages/Dashboard/ComponentList";
 
@@ -30,6 +31,7 @@ export default class DashRouter extends Component {
           <Route path="/dashboard/myorders" component={MyOders} />
           <Route path="/dashboard/wishlist" component={Wishlist} />
           <Route path="/dashboard/devicelist" component={DriverList} />
+          <Route path="/dashboard" exact component={Profile} />
 
           {/* <Route path="/dashboard/wishlist" component={WishList} />
           <Route path="/dashboard/profile" component={ProfInfo} />

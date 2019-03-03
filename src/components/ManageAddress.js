@@ -26,14 +26,6 @@ const columns = [
     text: "Address"
   },
   {
-    dataField: "addressType",
-    text: "Address Type"
-  },
-  {
-    dataField: "cityDistrictTown",
-    text: "City"
-  },
-  {
     dataField: "state",
     text: "State"
   },
@@ -77,8 +69,6 @@ export default class ManageAddress extends Component {
                     pincode
                     locality
                     address
-                    addressType
-                    cityDistrictTown
                     state
                     landmark
                   }
@@ -89,12 +79,8 @@ export default class ManageAddress extends Component {
             {({ loading, error, data }) => {
               if (loading) return <p>Loading...</p>;
               if (error) return <p>Error :(</p>;
-              data = data.addessOne.map(data => {
-                return {
-                  ...data,
-                  manufacturer_name: data.manufacturer.name
-                };
-              });
+              data = data.me.addressOne ? [data.me.addressOne] : [];
+              console.log(data);
               return (
                 <BootstrapTable keyField="id" data={data} columns={columns} />
               );

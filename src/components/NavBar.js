@@ -72,15 +72,23 @@ class NavBar extends Component {
                       <RouterNavLink
                         activeClassName="text-light"
                         className="nav-link"
-                        to="/all_devices"
+                        to="/SearchResult"
                       >
-                        Device
+                        Search Waste
+                      </RouterNavLink>
+                    </li>
+
+                    <li class="nav-item ">
+                      <RouterNavLink
+                        activeClassName="text-light"
+                        className="nav-link"
+                        to="/dashboard"
+                      >
+                        Dashboard
                       </RouterNavLink>
                     </li>
                     <NavItem>
-                      <NavLink href="https://github.com/AravindJaimon/e-Waste">
-                        GitHub
-                      </NavLink>
+                      <NavLink href="#">GitHub</NavLink>
                     </NavItem>
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav caret>
