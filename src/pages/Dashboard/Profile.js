@@ -3,6 +3,7 @@ import { Formik, Form, Field } from "formik";
 
 import gql from "graphql-tag";
 import { Mutation, Query } from "react-apollo";
+import { isEmpty } from "lodash";
 
 const UPDATE_USER = gql`
   mutation profileUpdate(
@@ -40,8 +41,12 @@ export default class ProfInfo extends Component {
         `}
       >
         {({ data, loading, error }) => {
-          if (loading && data && data.me) return <div>Loading</div>;
+          console.log(data);
+          if (loading || isEmpty(data.me)) return <div>Loading</div>;
           if (error) return <div>Error</div>;
+          if (isEmpty(data.me)) {
+            data.me = {};
+          }
           return (
             <Mutation
               onCompleted={() => {
@@ -49,7 +54,7 @@ export default class ProfInfo extends Component {
               }}
               mutation={UPDATE_USER}
             >
-              {(profileUpdate, {data}) => (
+              {(profileUpdate, { dataMa }) => (
                 <div className="container mt-4">
                   <h1 className="h2">Profile</h1>
                   <hr />

@@ -18,6 +18,8 @@
     "formik": "^1.5.1",
     "graphql": "^14.1.1",
     "history": "^4.7.2",
+    "loadsh": "^0.0.3",
+    "lodash": "^4.17.11",
     "react": "^16.8.3",
     "react-apollo": "^2.5.1",
     "react-bootstrap-table-next": "^3.0.0",
