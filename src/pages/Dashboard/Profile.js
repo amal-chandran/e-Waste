@@ -49,7 +49,7 @@ export default class ProfInfo extends Component {
               }}
               mutation={UPDATE_USER}
             >
-              {(profileUpdate, {}) => (
+              {(profileUpdate, {data}) => (
                 <div className="container mt-4">
                   <h1 className="h2">Profile</h1>
                   <hr />
