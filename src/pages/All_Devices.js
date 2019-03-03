@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import DevicesCard from "../components/Devices_Card";
 import { Query } from "react-apollo";
-import gql from "graphql-tag";
 import { Link } from "react-router-dom";
 import classnames from "classnames";
 
@@ -19,23 +18,7 @@ import AllResultsLayout from "../components/DeviceListLayout";
 import TabPane from "reactstrap/lib/TabPane";
 import TabContent from "reactstrap/lib/TabContent";
 import NavLink from "reactstrap/lib/NavLink";
-
-const GET_ALL_DEVICES = gql`
-  query {
-    allDevice {
-      id
-      name
-    }
-  }
-`;
-const GET_ALL_COMPONENTS = gql`
-  query {
-    allComponent {
-      id
-      name
-    }
-  }
-`;
+import { GET_ALL_COMPONENTS, GET_ALL_DEVICES } from "./SearchReults";
 
 export default class All_Devices extends Component {
   constructor(props) {
@@ -59,19 +42,6 @@ export default class All_Devices extends Component {
     return (
       <AllResultsLayout>
         <div className="container mt-4">
-          {/* Search Bar */}
-          <Row className="py-2 ">
-            <Col>
-              <InputGroup size="lg">
-                <Input placeholder="Search" />
-                <InputGroupAddon addonType="append">
-                  <Button color="primary">
-                    <i class="fas fa-search" />
-                  </Button>
-                </InputGroupAddon>
-              </InputGroup>
-            </Col>
-          </Row>
           {/* Navigation Tabs */}
           <Nav tabs>
             <NavItem>

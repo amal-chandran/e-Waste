@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-
+import SearchResults from "../pages/SearchResults";
 import LogIn_SignUp from "./../pages/Login_SignUp";
 import DashRouter from "./DashRouter";
 import All_Devices from "./../pages/All_Devices";
@@ -12,6 +12,7 @@ export default class Router extends Component {
     return (
       <div>
         <Switch>
+          <Route path="/SearchResult" component={SearchResults} />
           <Route path="/all_devices" component={All_Devices} />
 
           <Route

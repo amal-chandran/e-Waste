@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row } from "reactstrap";
+import { Row } from "reactstrap";
 import Button from "reactstrap/lib/Button";
 import placeholder from "./../assets/placeholder.png";
 import Col from "reactstrap/lib/Col";
@@ -22,7 +22,7 @@ export default class OrderDetail extends Component {
           <Col md={3} className="border-right">
             <img
               src={placeholder}
-              class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+              class=""
               alt=""
             />
           </Col>
