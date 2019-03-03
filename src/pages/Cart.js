@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DeviceListItem from "../components/Device_List_Item";
-import { Button} from "reactstrap";
+import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
@@ -15,7 +15,12 @@ export default class Cart extends Component {
             {
               me {
                 buyerCart {
-                  id
+                  devices {
+                    id
+                    name
+                    price
+                    description
+                  }
                 }
               }
             }
@@ -28,7 +33,7 @@ export default class Cart extends Component {
                   {data &&
                     data.me &&
                     data.me.buyerCart &&
-                    data.me.buyerCart.map(singleCart => (
+                    data.me.buyerCart.devices.map(singleCart => (
                       <DeviceListItem
                         {...singleCart}
                         toolbar={

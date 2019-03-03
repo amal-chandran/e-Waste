@@ -16,23 +16,23 @@ export default class IndividualItem extends Component {
           <Table>
             <tr>
               <th>Product Name</th>
-              <td>Name Here</td>
+              <td>{this.props.name}</td>
             </tr>
             <tr>
               <th>Quandity</th>
-              <td>Quandity Here</td>
+              <td>1</td>
             </tr>
             <tr>
               <th>Model Number</th>
-              <td>Model Number here</td>
+              <td>{this.props.modelNumber}</td>
             </tr>
             <tr>
               <th>Product Description</th>
-              <td>Product Description ges here</td>
+              <td>{this.props.description}</td>
             </tr>
             <tr>
               <th>Price</th>
-              <td>₹5000</td>
+              <td>{this.props.price}</td>
             </tr>
             <tr>
               <td align="right" colSpan="2">

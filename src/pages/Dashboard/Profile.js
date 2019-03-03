@@ -40,7 +40,8 @@ export default class ProfInfo extends Component {
         `}
       >
         {({ data, loading, error }) => {
-          if (loading) return <div>Loading</div>;
+          if (loading && data && data.me) return <div>Loading</div>;
+          if (error) return <div>Error</div>;
           return (
             <Mutation
               onCompleted={() => {
